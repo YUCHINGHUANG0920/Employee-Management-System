@@ -28,8 +28,8 @@ The Employee Management System (EMS) is a backend web application designed to ma
 * Update the `application.properties` file to include your PostgreSQL connection details:
     ```bash
     spring.datasource.url=jdbc:postgresql://localhost:5432/ems_db
-    spring.datasource.username=your_user_name # ems_user
-    spring.datasource.password='your_password' # password123
+    spring.datasource.username=your_user_name
+    spring.datasource.password='your_password'
     ```
 
 2. Start the Spring Boot server:
