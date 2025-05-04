@@ -34,7 +34,7 @@ The Employee Management System (EMS) is a backend web application designed to ma
 
 2. Start the Spring Boot server:
     ```bash
-    mvnw spring-boot:run
+    mvn spring-boot:run
     ```
 3. Access the API: The backend server will be running at http://localhost:8080. You can use tools like Postman or a frontend application to interact with the API.
 

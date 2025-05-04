@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import com.employ.crud_employ_api.exceptions.DuplicateEmailException;
+
 @Service
 public class EmployeeService {
     private  final EmployeeRepository employeeRepository;
@@ -22,14 +24,11 @@ public class EmployeeService {
     public ResponseEntity<Object> newEmployee(Employee employee){
         Optional<Employee> existingEmployee = employeeRepository.findByEmail(employee.getEmail());
         if (existingEmployee.isPresent()) {
-            return ResponseEntity
-                    .status(HttpStatus.CONFLICT) // 409 Conflict
-                    .body(Map.of("error", "Email must be unique"));
+            throw new DuplicateEmailException("Email must be unique");
         }
 
         employeeRepository.save(employee);
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
-    
     }
 
     public List<Employee> getEmployee(){
